@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Compose Lab"
 include(":app")
+include(":w03")
+include(":w04")
