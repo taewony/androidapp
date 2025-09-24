@@ -1,4 +1,4 @@
-package com.example.w03.ui.theme
+package com.example.test.ui.theme
 
 import android.app.Activity
 import android.os.Build

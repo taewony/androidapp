@@ -1,14 +1,11 @@
 package com.example.w04
 
-import android.R.attr.name
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,28 +17,25 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.w04.ui.theme.TaewonyTheme
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.w04.ui.theme.TestTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TaewonyTheme {
+            TestTheme {
                 HomeScreen()
             }
         }
@@ -53,18 +47,17 @@ data class Profile(val name: String, val intro: String)
 
 @Composable
 fun HomeScreen() {
-    Surface (
-        // color = MaterialTheme.colorScheme.background
-    ){
+    Surface {
         Box(
             modifier = Modifier.fillMaxSize(), //전체 화면을 차지
             contentAlignment = Alignment.Center // 중앙 정렬
         ) {
-            // MessageCard(Message("Android", "Jetpack Compose"))
+            //MessageCard(Message("Android", "Jetpack Compose"))
             ProfileCard(Profile("김태원", "안드로이드 앱 개발자"))
         }
     }
 }
+
 
 @Composable
 fun ProfileCard(data: Profile) {
@@ -98,6 +91,8 @@ fun ProfileCard(data: Profile) {
         }
     }
 }
+
+
 @Composable
 fun MessageCard(me: Message) {
     Card(
@@ -109,17 +104,19 @@ fun MessageCard(me: Message) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = me.name, // 내 이름
-                style = MaterialTheme.typography.titleMedium
+                text = me.name,
+                style = MaterialTheme.typography.titleLarge
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = me.msg, // 자기 소개
-                style = MaterialTheme.typography.titleLarge
+                text = me.msg,
+                style = MaterialTheme.typography.titleMedium
             )
         }
     }
 }
+
+
 
 @Preview(
     name = "Profile Card Dark Mode",
@@ -128,7 +125,7 @@ fun MessageCard(me: Message) {
 )
 @Composable
 fun PreviewProfileCard() {
-    TaewonyTheme {
+    TestTheme {
         ProfileCard(Profile("김태원", "앱 만들어 대박 난다."))
     }
 }
@@ -140,7 +137,7 @@ fun PreviewProfileCard() {
 )
 @Composable
 fun PreviewMessageCard() {
-    TaewonyTheme {
-        MessageCard(Message("Android", "Jetpack Compose"))
+    TestTheme {
+        MessageCard(Message("taewony", "Compose App Professional"))
     }
 }

@@ -19,8 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Compose Lab"
+rootProject.name = "test"
 include(":app")
 include(":w03")
 include(":w04")
-include(":w05")
